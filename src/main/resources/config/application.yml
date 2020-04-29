@@ -1,0 +1,15 @@
+server:  port: 8080
+spring: 
+  thymeleaf: 
+    cache: false
+    mode: HTML  profiles:
+    active: DB2#    active: H2
+#    active: MsSQL
+#    active: OfficeH2
+#    active: OfficeMsSQL
+logging:
+  level:
+    root: info
+    com.jpaExercise: debug
+  file:
+    name: logs/base.logtestingConfig:#  isThrowingErr: true  isThrowingErr: falseapi-err-msg:   errMap: {    "0400": "DB query 發生錯誤。",    "0401": "缺乏參數： #paramsName。",    "0402": "參數長度錯誤： #paramName，長度不可超過 #limitLength字元。",    "0403": "參數型態錯誤： #paramName，型態應為 #type。"  }
