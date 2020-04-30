@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -87,12 +86,6 @@ public class EmployeeRestController {
 
 		return new ResponseEntity<Map<String, Object>>(result,
 				"Success".equals(returnMessage) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	@PostMapping("/updateAndGetEmpoyees")
-	public List<EmployeeDTO> updateAndGetEmpoyees(@RequestParam("eId") String eId, @RequestParam("eYn") String targetEmpoyYn) {
-		Long targetEmployeeId = Long.parseLong(eId); 
-		return employeeService.updateAndGetEmpoyees(targetEmployeeId, targetEmpoyYn);
 	}
 
 }

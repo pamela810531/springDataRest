@@ -22,13 +22,17 @@ public class EmployeeService {
 	private boolean isThrowingErr;
 
 	public List<EmployeeDTO> getEmployeeDTOs() throws Exception {
-		if (isThrowingErr) throw new Exception("testing Err");
+		if (isThrowingErr)
+			throw new Exception("testing Err");
 		return parseToEmployeeDTO(employeeRepository.findAll());
 	}
-	
-	public List<EmployeeDTO> getEmployeeDTOsByDepartmentIdAndEmployYn(Long departmentId, String employYn) throws Exception {
-		if (isThrowingErr) throw new Exception("testing Err");
-		return parseToEmployeeDTO(employeeRepository.findByDepartmentAndEmployYn(new Department(departmentId), employYn));
+
+	public List<EmployeeDTO> getEmployeeDTOsByDepartmentIdAndEmployYn(Long departmentId, String employYn)
+			throws Exception {
+		if (isThrowingErr)
+			throw new Exception("testing Err");
+		return parseToEmployeeDTO(
+				employeeRepository.findByDepartmentAndEmployYn(new Department(departmentId), employYn));
 	}
 
 	private List<EmployeeDTO> parseToEmployeeDTO(List<Employee> emps) {
@@ -37,10 +41,6 @@ public class EmployeeService {
 			empDtos.add(new EmployeeDTO(employee));
 		}
 		return empDtos;
-	}
-	
-	public List<EmployeeDTO> updateAndGetEmpoyees(Long targetEmployeeId, String targetEmpoyYn) {
-		return employeeRepository.updateAndGetEmpoyees(targetEmployeeId, targetEmpoyYn);
 	}
 
 }
