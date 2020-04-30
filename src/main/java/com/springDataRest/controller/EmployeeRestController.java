@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -43,7 +44,7 @@ public class EmployeeRestController {
 			employeeDTOs = employeeService.getEmployeeDTOs();
 		} catch (Exception e) {
 			returnCode = "4002";
-			returnMessage = "Failed on: " + e.getMessage();
+			returnMessage = "Failed on: " + errorMessagesUtil.getErrMap().get("0400");
 			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 
@@ -67,7 +68,7 @@ public class EmployeeRestController {
 		Map<String, List<String>> checkResult = apiParametersCheckUtil.checkParameters(queryConditionsJson);
 		if (!checkResult.isEmpty()) {
 			returnCode = checkResult.keySet().toString();
-			returnMessage = checkResult.toString();
+			returnMessage = apiParametersCheckUtil.transferMapToMsg(checkResult);
 		} else {
 			try {
 				Long departmentId = Long.parseLong(queryConditionsJson.get("departmentId").asText());
@@ -86,6 +87,12 @@ public class EmployeeRestController {
 
 		return new ResponseEntity<Map<String, Object>>(result,
 				"Success".equals(returnMessage) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@PostMapping("/updateAndGetEmpoyees")
+	public List<EmployeeDTO> updateAndGetEmpoyees(@RequestParam("eId") String eId, @RequestParam("eYn") String targetEmpoyYn) {
+		Long targetEmployeeId = Long.parseLong(eId); 
+		return employeeService.updateAndGetEmpoyees(targetEmployeeId, targetEmpoyYn);
 	}
 
 }

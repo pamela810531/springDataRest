@@ -38,4 +38,9 @@ public class EmployeeService {
 		}
 		return empDtos;
 	}
+	
+	public List<EmployeeDTO> updateAndGetEmpoyees(Long targetEmployeeId, String targetEmpoyYn) {
+		return employeeRepository.updateAndGetEmpoyees(targetEmployeeId, targetEmpoyYn);
+	}
+
 }

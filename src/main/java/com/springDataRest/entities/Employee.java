@@ -12,13 +12,18 @@ import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 
+import com.springDataRest.dtos.EmployeeDTO;
+
 @Table(name = "employee_pam")
 @Entity(name = "employee")
 @NamedStoredProcedureQueries({
+		@NamedStoredProcedureQuery(name = "updateAndGetEmpoyees", procedureName = "UPDATE_AND_GET_EMPOYEES", parameters = {
+				@StoredProcedureParameter(name = "TARGET_EMPLOYEE_ID", type = Long.class, mode = ParameterMode.IN),
+				@StoredProcedureParameter(name = "TARGET_EMPOY_YN", type = String.class, mode = ParameterMode.IN),
+				@StoredProcedureParameter(name = "EMPLOYEES_RESULT", type = EmployeeDTO.class, mode = ParameterMode.REF_CURSOR) }),
 		@NamedStoredProcedureQuery(name = "getEmpQtyByEmployYn", procedureName = "GET_EMPLOYEES_QTY_BY_EMPLOY_YN", parameters = {
 				@StoredProcedureParameter(name = "TARGET_EMPLOY_YN", type = String.class, mode = ParameterMode.IN),
-				@StoredProcedureParameter(name = "UPDATED_ROW", type = Integer.class, mode = ParameterMode.OUT) })
-})
+				@StoredProcedureParameter(name = "UPDATED_ROW", type = Integer.class, mode = ParameterMode.OUT) }) })
 public class Employee {
 
 	@Id
