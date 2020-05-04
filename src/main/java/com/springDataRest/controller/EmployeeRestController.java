@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.springDataRest.db2.service.EmployeeService;
 import com.springDataRest.dtos.EmployeeDTO;
-import com.springDataRest.service.EmployeeService;
 import com.springDataRest.utils.ApiParametersCheckUtil;
 import com.springDataRest.utils.ErrorMessagesUtil;
 
@@ -87,5 +87,6 @@ public class EmployeeRestController {
 		return new ResponseEntity<Map<String, Object>>(result,
 				"Success".equals(returnMessage) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+
 
 }

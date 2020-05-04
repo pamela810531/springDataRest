@@ -1,6 +1,6 @@
 package com.springDataRest.dtos;
 
-import com.springDataRest.entities.Employee;
+import com.springDataRest.db2.entities.Employee;
 
 public class EmployeeDTO {
 	private Long employeeId;

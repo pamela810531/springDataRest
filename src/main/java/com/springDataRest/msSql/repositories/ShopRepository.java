@@ -1,11 +1,11 @@
-package com.springDataRest.repositories;
+package com.springDataRest.msSql.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.springDataRest.entities.Department;
+import com.springDataRest.msSql.entities.Shop;
 
 @RepositoryRestResource
-public interface DepartmentRepository extends JpaRepository<Department, Long> {
+public interface ShopRepository extends JpaRepository<Shop, Long> {
 
 }

@@ -1,4 +1,4 @@
-package com.springDataRest.entities;
+package com.springDataRest.db2.entities;
 
 import java.util.Set;
 

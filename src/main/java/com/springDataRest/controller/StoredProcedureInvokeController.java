@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springDataRest.db2.repositories.EmployeeRepository;
 import com.springDataRest.dtos.EmployeeDTO;
-import com.springDataRest.repositories.EmployeeRepository;
 
 @RestController
 public class StoredProcedureInvokeController {
@@ -22,10 +22,11 @@ public class StoredProcedureInvokeController {
 	public Integer getEmpQtyByEmployYn(@PathVariable("employYn") String employYn) {
 		return employeeRepository.getEmpQtyByEmployYn(employYn);
 	}
-	
+
 	@PostMapping("/updateAndGetEmpoyees")
-	public List<EmployeeDTO> updateAndGetEmpoyees(@RequestParam("eId") String eId, @RequestParam("eYn") String targetEmpoyYn) {
-		Long targetEmployeeId = Long.parseLong(eId); 
+	public List<EmployeeDTO> updateAndGetEmpoyees(@RequestParam("eId") String eId,
+			@RequestParam("eYn") String targetEmpoyYn) {
+		Long targetEmployeeId = Long.parseLong(eId);
 		return employeeRepository.updateAndGetEmpoyees(targetEmployeeId, targetEmpoyYn);
 	}
 

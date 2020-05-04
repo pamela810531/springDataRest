@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -106,7 +105,7 @@ public class ApiParametersCheckUtil {
 		}
 		return checkResult;
 	}
-	
+
 	public String transferMapToMsg(Map<String, List<String>> errMsgMap) {
 		String msg = "";
 		for (String errCode : errMsgMap.keySet()) {
@@ -114,5 +113,5 @@ public class ApiParametersCheckUtil {
 		}
 		return msg;
 	}
-	
+
 }

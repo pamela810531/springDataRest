@@ -1,4 +1,4 @@
-package com.springDataRest.repositories;
+package com.springDataRest.db2.repositories;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
+import com.springDataRest.db2.entities.Department;
+import com.springDataRest.db2.entities.Employee;
 import com.springDataRest.dtos.EmployeeDTO;
-import com.springDataRest.entities.Department;
-import com.springDataRest.entities.Employee;
 
 @RepositoryRestResource
 @Transactional

@@ -1,4 +1,4 @@
-package com.springDataRest.service;
+package com.springDataRest.db2.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.springDataRest.db2.entities.Department;
+import com.springDataRest.db2.entities.Employee;
+import com.springDataRest.db2.repositories.EmployeeRepository;
 import com.springDataRest.dtos.EmployeeDTO;
-import com.springDataRest.entities.Department;
-import com.springDataRest.entities.Employee;
-import com.springDataRest.repositories.EmployeeRepository;
 
 @Service
 public class EmployeeService {
