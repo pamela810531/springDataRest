@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Table
 @Entity
-public class Db2DummyEntity {
+public class DummyEntity {
 
 	@Id
 	private int dummy_id;

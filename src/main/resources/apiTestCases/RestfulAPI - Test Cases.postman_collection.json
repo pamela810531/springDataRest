@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "e01e1f9f-913c-4bc9-bb3b-998b469a64d2",
+		"name": "RestfulAPI - Test Cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Normal Case",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"departmentId\": \"1\" ,\"employYn\": \"1\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/getEmployeesByDepartmentIdAndEmployYn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getEmployeesByDepartmentIdAndEmployYn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Missing Parameters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/getEmployeesByDepartmentIdAndEmployYn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getEmployeesByDepartmentIdAndEmployYn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wrong Parameters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"departmentId\": \"testForErr\" ,\"employYn\": \"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/getEmployeesByDepartmentIdAndEmployYn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getEmployeesByDepartmentIdAndEmployYn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mixed Error",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"departmentId\": \"testForErr\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/getEmployeesByDepartmentIdAndEmployYn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getEmployeesByDepartmentIdAndEmployYn"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

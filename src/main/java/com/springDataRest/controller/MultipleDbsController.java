@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springDataRest.customizedRepositories.CustomizedDB2Repository;
 import com.springDataRest.db2.repositories.Db2DummyRepository;
+import com.springDataRest.msSql.repositories.MsSqlDummyRepository;
 
 @RestController
 public class MultipleDbsController {
@@ -19,6 +20,9 @@ public class MultipleDbsController {
 	@Autowired
 	private Db2DummyRepository db2DummyRepository;
 
+	@Autowired
+	private MsSqlDummyRepository msSqlDummyRepository;
+
 	/*
 	 * 用entity manager執行Native Query， 會回傳單純的無欄位名的Result List
 	 */
@@ -26,10 +30,15 @@ public class MultipleDbsController {
 	public List emNativeQuery() {
 		return customizedDB2Repository.getAllCompanies();
 	}
-	
+
 	@GetMapping("/db2/NativeQuery/byDummyEntity")
-	public List<Map<String, Object>> dummyEntityNativeQuery() {
+	public List<Map<String, Object>> db2DummyEntityNativeQuery() {
 		return db2DummyRepository.getAllChiefs();
+	}
+
+	@GetMapping("/mssql/NativeQuery/byDummyEntity")
+	public List<Map<String, Object>> msSqlDummyEntityNativeQuery() {
+		return msSqlDummyRepository.getAllCrews();
 	}
 
 }
