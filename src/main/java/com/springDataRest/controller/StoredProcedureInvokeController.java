@@ -11,7 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springDataRest.db2.repositories.EmployeeRepository;
 import com.springDataRest.dtos.EmployeeDTO;
-
+/**
+ * Test SP through DB2
+ * 
+ * @author Pamela
+ *
+ */
 @RestController
 public class StoredProcedureInvokeController {
 

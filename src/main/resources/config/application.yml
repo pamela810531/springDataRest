@@ -3,7 +3,7 @@ spring:
   thymeleaf: 
     cache: false
     mode: HTML  profiles:
-    active: multipleDB,errMsg#    active: DB2#    active: H2
+    active: multipleDBs,errMsg#    active: DB2#    active: H2
 #    active: MsSQL
 #    active: OfficeH2
 #    active: OfficeMsSQL
@@ -12,4 +12,4 @@ logging:
     root: info
     com.jpaExercise: debug
   file:
-    name: logs/base.logtestingConfig:#  isThrowingErr: true  isThrowingErr: false  ###application-errMsg.yml#api-err-msg: #  errMap: {#    "0400": "DB query 發生錯誤。",#    "0401": "缺乏參數： #paramsName。",#    "0402": "參數長度錯誤： #paramName，長度應保持#limitLength個字元。",#    "0403": "參數型態錯誤： #paramName，型態應為#type。"#  }
+    name: logs/base.logtestingConfig:#  isThrowingErr: true  isThrowingErr: false  ###application-errMsg.yml#api-err-msg: #  errMap: {#    "0400": "DB query 發生錯誤。",#    "0401": "缺乏參數： #paramsName。",#    "0402": "參數長度錯誤： #paramName，長度應保持#limitLength個字元。",#    "0403": "參數型態錯誤： #paramName，型態應為#type。"#  }###multipleDBs.yml#ms-sql: #  datasource: #    jdbcUrl: jdbc:sqlserver://localhost;database=jpaHW;#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver#    username: sa#    password: Qo4Cj86a097#  jpa: #    database-platform: org.hibernate.dialect.SQLServer2012Dialect#    #db2: #  datasource: #    jdbcUrl: jdbc:db2://192.168.43.166:50000/SAMPLE#    driver-class-name: com.ibm.db2.jcc.DB2Driver#    username: non-t#    password: Qo4Cj86a097#  jpa: #    database-platform: org.hibernate.dialect.DB2Dialect#    #spring:#  jpa: #    hibernate:#      ddl-auto: none#    show-sql: true

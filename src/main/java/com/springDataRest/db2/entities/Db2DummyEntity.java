@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * 以方便使用@Query，<br>
  * 故本Entity中無具意義的field。
  * 
- * @author Pamela 
+ * @author Pamela
  *
  */
 @Table
@@ -20,13 +20,5 @@ public class Db2DummyEntity {
 
 	@Id
 	private int dummy_id;
-
-	public int getDummy_id() {
-		return dummy_id;
-	}
-
-	public void setDummy_id(int dummy_id) {
-		this.dummy_id = dummy_id;
-	}
 
 }
