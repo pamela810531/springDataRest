@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.springDataRest.db2.entities.DummyEntity;
+import com.springDataRest.dummyEntity.DummyEntity;
 
 @Repository
 public interface Db2DummyRepository extends JpaRepository<DummyEntity, Integer> {

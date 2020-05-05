@@ -1,4 +1,4 @@
-package com.springDataRest.db2.entities;
+package com.springDataRest.dummyEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

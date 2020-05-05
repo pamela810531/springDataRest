@@ -27,8 +27,13 @@ public class MultipleDbsController {
 	 * 用entity manager執行Native Query， 會回傳單純的無欄位名的Result List
 	 */
 	@GetMapping("/db2/NativeQuery/byEntityManager")
-	public List emNativeQuery() {
+	public List db2EmNativeQuery() {
 		return customizedDB2Repository.getAllCompanies();
+	}
+	
+	@GetMapping("/msSql/NativeQuery/byEntityManager")
+	public List msSqlemNativeQuery() {
+		return customizedDB2Repository.getAllShops();
 	}
 
 	@GetMapping("/db2/NativeQuery/byDummyEntity")

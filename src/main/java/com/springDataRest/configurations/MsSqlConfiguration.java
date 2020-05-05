@@ -11,7 +11,6 @@ import org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy;
 import org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -33,7 +32,7 @@ public class MsSqlConfiguration {
 	public LocalContainerEntityManagerFactoryBean msSqlEntityManager() {
 		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(msSqlDataSource());
-		em.setPackagesToScan("com.springDataRest.msSql");
+		em.setPackagesToScan("com.springDataRest.msSql", "com.springDataRest.dummyEntity");
 
 		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);

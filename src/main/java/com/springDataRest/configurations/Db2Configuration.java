@@ -34,7 +34,7 @@ public class Db2Configuration {
 	public LocalContainerEntityManagerFactoryBean db2EntityManager() {
 		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(db2DataSource());
-		em.setPackagesToScan("com.springDataRest.db2");
+		em.setPackagesToScan("com.springDataRest.db2", "com.springDataRest.dummyEntity"); // entity scan
 
 		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
