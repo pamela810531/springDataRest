@@ -18,7 +18,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
-@EnableJpaRepositories(basePackages = "com.springDataRest.db2", entityManagerFactoryRef = "db2EntityManager", transactionManagerRef = "db2TransactionManager")
+@EnableJpaRepositories(basePackages = "com.springDataRest.db2.repositories", entityManagerFactoryRef = "db2EntityManager", transactionManagerRef = "db2TransactionManager")
 @Configuration
 public class Db2Configuration {
 
@@ -34,7 +34,8 @@ public class Db2Configuration {
 	public LocalContainerEntityManagerFactoryBean db2EntityManager() {
 		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(db2DataSource());
-		em.setPackagesToScan("com.springDataRest.db2", "com.springDataRest.dummyEntity"); // entity scan
+		// entity packages
+		em.setPackagesToScan("com.springDataRest.db2.entities", "com.springDataRest.dummyEntity");
 
 		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
@@ -42,8 +43,8 @@ public class Db2Configuration {
 		final HashMap<String, Object> properties = new HashMap<String, Object>();
 		properties.put("hibernate.physical_naming_strategy", SpringPhysicalNamingStrategy.class.getName());
 		properties.put("hibernate.implicit_naming_strategy", SpringImplicitNamingStrategy.class.getName());
-//		properties.put("hibernate.hbm2ddl.auto", ddlAuto);
-//		properties.put("hibernate.dialect", db2Dialect);
+		properties.put("hibernate.hbm2ddl.auto", ddlAuto);
+		properties.put("hibernate.dialect", db2Dialect);
 		properties.put("hibernate.show_sql", showSql);
 		em.setJpaPropertyMap(properties);
 

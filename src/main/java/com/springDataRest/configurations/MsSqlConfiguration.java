@@ -17,7 +17,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
-@EnableJpaRepositories(basePackages = "com.springDataRest.msSql", entityManagerFactoryRef = "msSqlEntityManager", transactionManagerRef = "msSqlTransactionManager")
+@EnableJpaRepositories(basePackages = "com.springDataRest.msSql.repositories", entityManagerFactoryRef = "msSqlEntityManager", transactionManagerRef = "msSqlTransactionManager")
 @Configuration
 public class MsSqlConfiguration {
 
@@ -32,7 +32,7 @@ public class MsSqlConfiguration {
 	public LocalContainerEntityManagerFactoryBean msSqlEntityManager() {
 		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(msSqlDataSource());
-		em.setPackagesToScan("com.springDataRest.msSql", "com.springDataRest.dummyEntity");
+		em.setPackagesToScan("com.springDataRest.msSql.entities", "com.springDataRest.dummyEntity");
 
 		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
@@ -40,8 +40,8 @@ public class MsSqlConfiguration {
 		final HashMap<String, Object> properties = new HashMap<String, Object>();
 		properties.put("hibernate.physical_naming_strategy", SpringPhysicalNamingStrategy.class.getName());
 		properties.put("hibernate.implicit_naming_strategy", SpringImplicitNamingStrategy.class.getName());
-//		properties.put("hibernate.hbm2ddl.auto", ddlAuto);
-//		properties.put("hibernate.dialect", msSqlDialect);
+		properties.put("hibernate.hbm2ddl.auto", ddlAuto);
+		properties.put("hibernate.dialect", msSqlDialect);
 		properties.put("hibernate.show_sql", showSql);
 		em.setJpaPropertyMap(properties);
 
